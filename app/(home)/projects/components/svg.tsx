@@ -39,8 +39,9 @@ export function ProjectChallengeSVG() {
           y2="96.875"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FF1E1E" />
-          <stop offset="1" stop-color="#FF1E1E" stop-opacity="0" />
+          {/* <stop stopColor="#FF1E1E" /> */}
+          <stop stopColor="#FF1E1E" />
+          <stop offset="1" stopColor="#FF1E1E" stop-opacity="0" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_138_5810"
@@ -50,8 +51,8 @@ export function ProjectChallengeSVG() {
           y2="50"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FF1E1E" />
-          <stop offset="1" stop-color="#FF1E1E" stop-opacity="0" />
+          <stop stopColor="#FF1E1E" />
+          <stop offset="1" stopColor="#FF1E1E" stop-opacity="0" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_138_5810"
@@ -61,8 +62,8 @@ export function ProjectChallengeSVG() {
           y2="50"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FF1E1E" />
-          <stop offset="1" stop-color="#FF1E1E" stop-opacity="0" />
+          <stop stopColor="#FF1E1E" />
+          <stop offset="1" stopColor="#FF1E1E" stop-opacity="0" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_138_5810"
@@ -72,8 +73,8 @@ export function ProjectChallengeSVG() {
           y2="3.125"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FF1E1E" />
-          <stop offset="1" stop-color="#FF1E1E" stop-opacity="0" />
+          <stop stopColor="#FF1E1E" />
+          <stop offset="1" stopColor="#FF1E1E" stop-opacity="0" />
         </linearGradient>
         <radialGradient
           id="paint4_radial_138_5810"
@@ -83,8 +84,8 @@ export function ProjectChallengeSVG() {
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(50 50) rotate(90) scale(15)"
         >
-          <stop stop-color="#FF1E1E" />
-          <stop offset="1" stop-color="#FF1E1E" stop-opacity="0" />
+          <stop stopColor="#FF1E1E" />
+          <stop offset="1" stopColor="#FF1E1E" stop-opacity="0" />
         </radialGradient>
         <clipPath id="clip0_138_5810">
           <rect width="100" height="100" fill="white" />
@@ -165,8 +166,8 @@ export function ProjectSolutionSVG() {
           y2="46.2145"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FF1E1E" />
-          <stop offset="1" stop-color="#FF1E1E" stop-opacity="0" />
+          <stop stopColor="#FF1E1E" />
+          <stop offset="1" stopColor="#FF1E1E" stop-opacity="0" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_138_5795"
@@ -176,8 +177,8 @@ export function ProjectSolutionSVG() {
           y2="-1.78551"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FF1E1E" />
-          <stop offset="1" stop-color="#FF1E1E" stop-opacity="0" />
+          <stop stopColor="#FF1E1E" />
+          <stop offset="1" stopColor="#FF1E1E" stop-opacity="0" />
         </linearGradient>
         <linearGradient
           id="paint2_linear_138_5795"
@@ -187,8 +188,8 @@ export function ProjectSolutionSVG() {
           y2="54.786"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FF1E1E" />
-          <stop offset="1" stop-color="#FF1E1E" stop-opacity="0" />
+          <stop stopColor="#FF1E1E" />
+          <stop offset="1" stopColor="#FF1E1E" stop-opacity="0" />
         </linearGradient>
         <linearGradient
           id="paint3_linear_138_5795"
@@ -198,8 +199,8 @@ export function ProjectSolutionSVG() {
           y2="102.786"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#FF1E1E" />
-          <stop offset="1" stop-color="#FF1E1E" stop-opacity="0" />
+          <stop stopColor="#FF1E1E" />
+          <stop offset="1" stopColor="#FF1E1E" stop-opacity="0" />
         </linearGradient>
         <radialGradient
           id="paint4_radial_138_5795"
@@ -209,8 +210,8 @@ export function ProjectSolutionSVG() {
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(49.9996 49.6426) rotate(90) scale(47.1429)"
         >
-          <stop stop-color="#FF1E1E" />
-          <stop offset="1" stop-color="#FF1E1E" stop-opacity="0" />
+          <stop stopColor="#FF1E1E" />
+          <stop offset="1" stopColor="#FF1E1E" stop-opacity="0" />
         </radialGradient>
         <radialGradient
           id="paint5_radial_138_5795"
@@ -220,8 +221,8 @@ export function ProjectSolutionSVG() {
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(49.9998 49.6429) rotate(90) scale(56.5714)"
         >
-          <stop stop-color="#FF1E1E" />
-          <stop offset="1" stop-color="#FF1E1E" stop-opacity="0.54" />
+          <stop stopColor="#FF1E1E" />
+          <stop offset="1" stopColor="#FF1E1E" stop-opacity="0.54" />
         </radialGradient>
         <radialGradient
           id="paint6_radial_138_5795"
@@ -231,13 +232,9 @@ export function ProjectSolutionSVG() {
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(49.9999 48.7858) rotate(67.9993) scale(30.5073)"
         >
-          <stop stop-color="#FF1E1E" />
-          <stop
-            offset="0.739583"
-            stop-color="#FF1E1E"
-            stop-opacity="0.582344"
-          />
-          <stop offset="1" stop-color="#FF1E1E" stop-opacity="0.19" />
+          <stop stopColor="#FF1E1E" />
+          <stop offset="0.739583" stopColor="#FF1E1E" stop-opacity="0.582344" />
+          <stop offset="1" stopColor="#FF1E1E" stop-opacity="0.19" />
         </radialGradient>
         <radialGradient
           id="paint7_radial_138_5795"
@@ -247,13 +244,9 @@ export function ProjectSolutionSVG() {
           gradientUnits="userSpaceOnUse"
           gradientTransform="translate(49.9996 48.9999) rotate(67.9993) scale(22.8805)"
         >
-          <stop stop-color="#FF1E1E" />
-          <stop
-            offset="0.739583"
-            stop-color="#FF1E1E"
-            stop-opacity="0.582344"
-          />
-          <stop offset="1" stop-color="#FF1E1E" stop-opacity="0.19" />
+          <stop stopColor="#FF1E1E" />
+          <stop offset="0.739583" stopColor="#FF1E1E" stop-opacity="0.582344" />
+          <stop offset="1" stopColor="#FF1E1E" stop-opacity="0.19" />
         </radialGradient>
         <clipPath id="clip0_138_5795">
           <rect width="100" height="100" fill="white" />

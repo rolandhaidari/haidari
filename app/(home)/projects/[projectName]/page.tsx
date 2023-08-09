@@ -15,10 +15,12 @@ import { ProjectGallery } from "../components/project-gallery"
 import { ProjectChallengeSVG, ProjectSolutionSVG } from "../components/svg"
 import { absoluteUrl } from "@/lib/utils"
 
-interface ProjectPageProps {
-  params: {
-    slug: string[]
-  }
+export async function generateStaticParams() {
+  return PROJECTS.map((project) => ({
+    params: {
+      projectName: project.projectName,
+    },
+  }))
 }
 
 export async function generateMetadata({
@@ -71,7 +73,7 @@ export async function generateMetadata({
   }
 }
 
-export default function SingleProjectPage({
+export default async function SingleProjectPage({
   params,
 }: {
   params: { projectName: string }

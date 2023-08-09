@@ -9,7 +9,7 @@ export function ProjectGallery({ projectImages }: ProjectGalleryProps) {
   return (
     <>
       {projectImages?.map((image) => (
-        <div className="h-full w-full">
+        <div className="h-full w-full" key={image}>
           <div>
             <Image
               src={image}
