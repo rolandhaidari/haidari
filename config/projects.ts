@@ -1,5 +1,64 @@
 export const PROJECTS = [
   {
+    projectName: "recipe-saas-demo",
+    project_title: "Full-stack recipe SaaS demo app",
+    tech_stack: [
+      "TypeScript",
+      "Next.js",
+      "React",
+      "Tailwind",
+      "Supabase",
+      "Stripe",
+      "PostgreSQL",
+      "shadcn",
+    ],
+    description:
+      "Auth, payments, protected routes, CRUD operations, webhooks, server actions, and more.",
+    year: "2023",
+    area: "Full-stack",
+    github: "https://github.com/dissorial/recipe-saas-demo",
+    images: [
+      "/images/projects/recipe-saas-demo/01.jpg",
+      "/images/projects/recipe-saas-demo/02.png",
+      "/images/projects/recipe-saas-demo/03.jpg",
+      "/images/projects/recipe-saas-demo/04.jpg",
+    ],
+    tabs: [
+      {
+        title: "Supabase clients",
+        value: "supabase_clients",
+        content: [
+          {
+            type: "Challenge",
+            description:
+              "Supabase offers several types of clients, such route handler, server action, server component, client component and other clients. It was challenging to understand the differences between them and how to use them.",
+          },
+          {
+            type: "Solution",
+            description:
+              "Using the server client for RSC was straightforward. For client components, I used auth helpers to wrap the application in a context provider that would allow me to desctructure values (e.g. session).",
+          },
+        ],
+      },
+      {
+        title: "Session storage",
+        value: "session_storage",
+        content: [
+          {
+            type: "Challenge",
+            description:
+              "Dynamic routes, such as those utilizing cookies, cannot be statically generated. This presented a challenge in terms of performance optimization.",
+          },
+          {
+            type: "Solution",
+            description:
+              "I am not sure I arrived at a solution. I hoped the issue would be resolved by caching the server component client that stores the session and rely on the middleware to do the rest, but that did not work.",
+          },
+        ],
+      },
+    ],
+  },
+  {
     projectName: "chat-app",
     project_title: "Real-time responsive chat application",
     tech_stack: [
@@ -190,7 +249,7 @@ export const PROJECTS = [
       "Encryption, access control, monitoring tools, and visualization of survey data",
     year: "2022",
     area: "Data",
-    github: "https://github.com/dissorial/Aria",
+
     images: [
       "/images/projects/survey-data/01.webp",
       "/images/projects/survey-data/02.webp",
@@ -239,7 +298,6 @@ export const PROJECTS = [
       "Synthesis, analysis and visualization of high school data about grades, assignments and more",
     year: "2022",
     area: "Data",
-    github: "https://github.com/dissorial/Aria",
     images: [
       "/images/projects/school-dashboard/01.webp",
       "/images/projects/school-dashboard/02.webp",
@@ -382,7 +440,6 @@ export const PROJECTS = [
     description: "Conceptual design for a restaurant website using Figma",
     year: "2023",
     area: "Web design",
-    github: "https://github.com/dissorial/night_of_chances",
     images: [
       "/images/projects/roxor/01.webp",
       "/images/projects/roxor/02.webp",
@@ -399,7 +456,6 @@ export const PROJECTS = [
     description: "Conceptual design for a hotel website using Figma",
     year: "2023",
     area: "Web design",
-    github: "https://github.com/dissorial/night_of_chances",
     images: [
       "/images/projects/hotel-nivy/01.webp",
       "/images/projects/hotel-nivy/02.webp",
@@ -417,7 +473,6 @@ export const PROJECTS = [
       "Headless, utilizing Puppeteer with integrated datacenter rotating proxies and language translation",
     year: "2023",
     area: "Data",
-    github: "https://github.com/dissorial/netflix-clone",
     images: [
       "/images/projects/web-scraper/01.webp",
       "/images/projects/web-scraper/02.webp",
@@ -475,8 +530,8 @@ export const PROJECTS = [
     description:
       "Text embeddings and vectorization for interactive document retrieval and question-answering tasks, powered by GPT",
     year: "2023",
-    area: "Data",
-    github: "https://github.com/dissorial/netflix-clone",
+    area: "Full-stack",
+    github: "https://github.com/dissorial/doc-chatbot",
     images: [
       "/images/projects/interactive-document-chatbot/01.webp",
       "/images/projects/interactive-document-chatbot/02.webp",

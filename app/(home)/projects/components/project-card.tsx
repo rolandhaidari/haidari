@@ -20,7 +20,7 @@ interface Project {
   description: string
   year: string
   area: string
-  github: string
+  github?: string
   images: string[]
 }
 

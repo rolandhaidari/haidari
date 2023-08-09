@@ -11,22 +11,22 @@ export function ProjectChallengeSVG() {
         <path
           d="M1.61804 99L50 2.23607L98.382 99H1.61804Z"
           stroke="url(#paint0_linear_138_5810)"
-          stroke-width="2"
+          strokeWidth="2"
         />
         <path
           d="M99 98.382L2.23607 50L99 1.61804V98.382Z"
           stroke="url(#paint1_linear_138_5810)"
-          stroke-width="2"
+          strokeWidth="2"
         />
         <path
           d="M1 98.382L97.7639 50L1 1.61804V98.382Z"
           stroke="url(#paint2_linear_138_5810)"
-          stroke-width="2"
+          strokeWidth="2"
         />
         <path
           d="M1.61804 1L50 97.7639L98.382 1H1.61804Z"
           stroke="url(#paint3_linear_138_5810)"
-          stroke-width="2"
+          strokeWidth="2"
         />
         <circle cx="50" cy="50" r="20" fill="url(#paint4_radial_138_5810)" />
       </g>
@@ -108,41 +108,41 @@ export function ProjectSolutionSVG() {
         <path
           d="M2 49.6431C2 35.7048 7.94087 23.1542 17.4286 14.3851C25.9859 6.47593 37.4286 1.64307 50 1.64307"
           stroke="url(#paint0_linear_138_5795)"
-          stroke-width="2"
+          strokeWidth="2"
         />
         <path
           d="M98 49.6431C98 23.1334 76.5097 1.64307 50 1.64307"
           stroke="url(#paint1_linear_138_5795)"
-          stroke-width="2"
-          stroke-linejoin="round"
-          stroke-dasharray="1 1"
+          strokeWidth="2"
+          strokeLinejoin="round"
+          strokeDasharray="1 1"
         />
         <path
           d="M98 51.3574C98 65.2957 92.0591 77.8463 82.5714 86.6154C74.0141 94.5246 62.5714 99.3574 50 99.3574"
           stroke="url(#paint2_linear_138_5795)"
-          stroke-width="2"
+          strokeWidth="2"
         />
         <path
           d="M2 51.3574C2 77.8671 23.4903 99.3574 50 99.3574"
           stroke="url(#paint3_linear_138_5795)"
-          stroke-width="2"
-          stroke-dasharray="1 1"
+          strokeWidth="2"
+          strokeDasharray="1 1"
         />
         <circle
           cx="49.9996"
           cy="49.6426"
           r="33.2857"
           stroke="url(#paint4_radial_138_5795)"
-          stroke-width="2"
-          stroke-dasharray="1.5 1.5"
+          strokeWidth="2"
+          strokeDasharray="1.5 1.5"
         />
         <circle
           cx="49.9998"
           cy="49.6429"
           r="40.1429"
           stroke="url(#paint5_radial_138_5795)"
-          stroke-width="2"
-          stroke-dasharray="0.5 0.5"
+          strokeWidth="2"
+          strokeDasharray="0.5 0.5"
         />
         <circle
           cx="49.9999"

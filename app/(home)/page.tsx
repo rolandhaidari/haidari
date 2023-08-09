@@ -12,7 +12,7 @@ import { Testimonial } from "@/components/testimonial"
 
 import { ProjectCard } from "./projects/components/project-card"
 
-const selectedProjects = ["chat-app", "quant-self-analysis"]
+const selectedProjects = ["recipe-saas-demo", "interactive-document-chatbot"]
 
 const TECH_STACK_HOMEPAGE = [
   {
