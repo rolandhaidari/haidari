@@ -89,7 +89,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
               <div className="flex-1">{children}</div>
               <SiteFooter className="space-y-6 border-t px-8 py-10 md:py-12 lg:py-24" />
             </div>
-            <TailwindIndicator />
+            {/* <TailwindIndicator /> */}
           </ThemeProvider>
 
           <Analytics />
