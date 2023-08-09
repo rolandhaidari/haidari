@@ -37,11 +37,12 @@ export async function generateMetadata({
   const url = env.NEXT_PUBLIC_APP_URL
 
   const ogUrl = new URL(`${url}/api/og`)
+
   ogUrl.searchParams.set(
     "heading",
     project.description ?? project.project_title
   )
-  ogUrl.searchParams.set("type", "Blog")
+  ogUrl.searchParams.set("type", "Project")
   ogUrl.searchParams.set("mode", "dark")
 
   return {
@@ -98,7 +99,10 @@ export default function SingleProjectPage({
 
       <section className="container flex-1 space-y-4 pb-10 md:pb-12 lg:pb-24">
         {project?.tabs?.length !== undefined && (
-          <div className="container  flex max-w-[64rem] flex-col items-center text-center">
+          <div
+            className="container  flex max-w-[64rem] flex-col items-center text-center"
+            key={project?.tabs?.[0].value}
+          >
             <h2 className="text-center font-heading text-2xl leading-[1.1] md:text-4xl">
               Overview
             </h2>
@@ -110,7 +114,10 @@ export default function SingleProjectPage({
 
         <div className="">
           {project?.tabs?.length !== undefined && (
-            <Tabs defaultValue={project?.tabs?.[0].value}>
+            <Tabs
+              defaultValue={project?.tabs?.[0].value}
+              key={project?.tabs?.[0].value}
+            >
               <div className="flex">
                 {project?.tabs?.length !== 1 && (
                   <TabsList className="mx-auto flex flex-wrap">

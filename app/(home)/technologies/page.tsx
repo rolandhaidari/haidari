@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 import Link from "next/link"
-
+import { env } from "@/env.mjs"
 import { buttonVariants } from "@/components/ui/button"
 import {
   PageHeader,
@@ -8,11 +8,41 @@ import {
   PageHeaderHeading,
 } from "@/components/page-header"
 import { SomeCard } from "@/components/some-card"
+import { absoluteUrl } from "@/lib/utils"
 import { SomeIcons } from "@/components/some-icons"
 
-export const metadata: Metadata = {
-  title: "Technologies",
-  description: "A collection of languages, frameworks, and tools I've used.",
+export async function generateMetadata(): Promise<Metadata> {
+  const url = env.NEXT_PUBLIC_APP_URL
+
+  const ogUrl = new URL(`${url}/api/og`)
+  ogUrl.searchParams.set("heading", "Technologies")
+  ogUrl.searchParams.set("type", "About")
+  ogUrl.searchParams.set("mode", "dark")
+
+  return {
+    title: "Technologies",
+    description: "A collection of technologies I use in my projects.",
+    openGraph: {
+      title: "Technologies",
+      description: "A collection of technologies I use in my projects.",
+      type: "article",
+      url: absoluteUrl("technologies"),
+      images: [
+        {
+          url: ogUrl.toString(),
+          width: 1200,
+          height: 630,
+          alt: "Technologies",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Technologies",
+      description: "A collection of technologies I use in my projects.",
+      images: [ogUrl.toString()],
+    },
+  }
 }
 
 const TECH_STACK_ALL = [
