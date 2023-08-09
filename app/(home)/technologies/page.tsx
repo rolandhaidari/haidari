@@ -1,7 +1,5 @@
 import { Metadata } from "next"
-import Link from "next/link"
 import { env } from "@/env.mjs"
-import { buttonVariants } from "@/components/ui/button"
 import {
   PageHeader,
   PageHeaderDescription,
@@ -9,13 +7,17 @@ import {
 } from "@/components/page-header"
 import { SomeCard } from "@/components/some-card"
 import { absoluteUrl } from "@/lib/utils"
-import { SomeIcons } from "@/components/some-icons"
+import { Progress } from "@/components/ui/progress"
+import { TECH_STACK_ALL } from "@/config/tech-stack"
 
 export async function generateMetadata(): Promise<Metadata> {
   const url = env.NEXT_PUBLIC_APP_URL
 
   const ogUrl = new URL(`${url}/api/og`)
-  ogUrl.searchParams.set("heading", "Technologies")
+  ogUrl.searchParams.set(
+    "heading",
+    "Technologies" ?? "A collection of technologies I use in my projects."
+  )
   ogUrl.searchParams.set("type", "About")
   ogUrl.searchParams.set("mode", "dark")
 
@@ -45,87 +47,6 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-const TECH_STACK_ALL = [
-  {
-    icon: SomeIcons.react,
-    title: "React",
-    desc: "Custom hooks, context, state management",
-  },
-  {
-    icon: SomeIcons.nextjs,
-    title: "NextJS",
-    desc: "ISR, SSG, REST API, cache",
-  },
-  {
-    icon: SomeIcons.typescript,
-    title: "TypeScript",
-    desc: "Prop types, interfaces",
-  },
-  {
-    icon: SomeIcons.tailwind,
-    title: "Tailwind",
-    desc: "Custom configs, tailwind plugins",
-  },
-  {
-    icon: SomeIcons.supabase,
-    title: "Supabase",
-    desc: "Postgres, auth, storage",
-  },
-  {
-    icon: SomeIcons.numpy,
-    title: "Numpy",
-    desc: "Array manipulation",
-  },
-  {
-    icon: SomeIcons.pandas,
-    title: "Pandas",
-    desc: "Data manipulation, analysis",
-  },
-  {
-    icon: SomeIcons.mongodb,
-    title: "MongoDB",
-    desc: "CRUD, aggregation",
-  },
-  {
-    icon: SomeIcons.pinecone,
-    title: "Pinecone",
-    desc: "Similarity search, embeddings",
-  },
-  {
-    icon: SomeIcons.prisma,
-    title: "Prisma",
-    desc: "ORM, migrations",
-  },
-  {
-    icon: SomeIcons.redux,
-    title: "Redux",
-    desc: "Redux toolkit",
-  },
-  {
-    icon: SomeIcons.figma,
-    title: "Figma",
-    desc: "Design, prototyping",
-  },
-  {
-    icon: SomeIcons.openai,
-    title: "OpenAI",
-    desc: "API, GPT models",
-  },
-  {
-    icon: SomeIcons.streamlit,
-    title: "Streamlit",
-    desc: "Data apps, dashboards",
-  },
-  {
-    title: "LangChain/LLamaIndex",
-    desc: "LLMs, agents, chains, prompting",
-  },
-  {
-    title: "Altair/Seaborn",
-    desc: "Interactive heatmaps, scatter plots, distributions",
-  },
-]
-
 export default function TechnologiesPage() {
   return (
     <section
@@ -135,19 +56,46 @@ export default function TechnologiesPage() {
       <PageHeader className="page-header pb-10">
         <PageHeaderHeading>Technologies</PageHeaderHeading>
         <PageHeaderDescription>
-          A collection of languages, frameworks, and tools I&apos;ve used.
+          A collection of languages, frameworks, and tools I use.
         </PageHeaderDescription>
+        <div className="w-full">
+          <p className="mt-10 w-full text-center font-semibold leading-normal text-muted-foreground sm:text-lg sm:leading-7">
+            Frequency of use
+          </p>
+
+          <div className="mt-2 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+            <div className="flex flex-col">
+              <p className="sm:text-md leading-normal tracking-normal text-muted-foreground sm:leading-7">
+                Sometimes
+              </p>
+              <Progress value={25} />
+            </div>
+            <div className="flex flex-col">
+              <p className="sm:text-md leading-normal tracking-normal text-muted-foreground sm:leading-7">
+                Often
+              </p>
+              <Progress value={50} />
+            </div>
+            <div className="flex flex-col">
+              <p className="sm:text-md leading-normal tracking-normal text-muted-foreground sm:leading-7">
+                Very Often
+              </p>
+              <Progress value={75} />
+            </div>
+            <div className="flex flex-col">
+              <p className="sm:text-md leading-normal tracking-normal text-muted-foreground sm:leading-7">
+                (Almost) Always
+              </p>
+              <Progress value={100} />
+            </div>
+          </div>
+        </div>
       </PageHeader>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-2">
         {TECH_STACK_ALL.map((tech) => (
           <SomeCard key={tech.title} tech={tech} />
         ))}
       </div>
-      {/* <div className="mt-6 flex justify-center">
-        <Link className={buttonVariants()} href="/projects">
-          Find out more
-        </Link>
-      </div> */}
     </section>
   )
 }

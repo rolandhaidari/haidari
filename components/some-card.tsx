@@ -5,8 +5,11 @@ import {
   Card,
   CardDescription,
   CardHeader,
+  CardFooter,
   CardTitle,
 } from "@/components/ui/card"
+import { Badge } from "./ui/badge"
+import { Progress } from "@/components/ui/progress"
 
 export function SomeCard({ tech }) {
   return (
@@ -16,7 +19,7 @@ export function SomeCard({ tech }) {
           <CardTitle>{tech.title}</CardTitle>
           <CardDescription>{tech.desc}</CardDescription>
         </div>
-        <div className="flex items-center space-x-1 rounded-md text-secondary-foreground">
+        <div className="flex items-center space-x-1 rounded-md  text-secondary-foreground">
           {tech?.icon && (
             <Avatar className="h-10 w-10">
               {createElement(tech.icon, {
@@ -26,6 +29,9 @@ export function SomeCard({ tech }) {
           )}
         </div>
       </CardHeader>
+      <CardFooter>
+        {<Progress value={tech?.usage} className="w-[60%]" />}
+      </CardFooter>
     </Card>
   )
 }

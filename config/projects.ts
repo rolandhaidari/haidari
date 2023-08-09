@@ -518,7 +518,7 @@ export const PROJECTS = [
       },
       {
         title: "Data ingestion",
-        value: "multiple_chat_sessions",
+        value: "data_ingestion",
         content: [
           {
             type: "Challenge",

@@ -165,8 +165,6 @@ export const SomeIcons = {
   ),
   supabase: (props: IconProps) => (
     <svg
-      width="109"
-      height="113"
       viewBox="0 0 109 113"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"

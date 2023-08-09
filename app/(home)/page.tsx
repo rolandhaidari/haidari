@@ -113,7 +113,7 @@ export default async function IndexPage() {
           ))}
         </div>
         <div className="flex justify-center">
-          <Link className={buttonVariants()} href="/projects">
+          <Link className={buttonVariants()} href="/technologies">
             Find out more
           </Link>
         </div>
