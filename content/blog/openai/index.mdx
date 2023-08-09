@@ -1,0 +1,223 @@
+---
+title: OpenAI Functions
+description: Working with OpenAI functions in Python
+---
+
+When OpenAI released an update that allows developers to describe functions to GPT models (albeit only 0613 versions), and have those functions return a structured JSON output, I think everyone recognized that this would advance that capabilities of any chatbots that utilize LLMs under the hood.
+
+This simple application is an attempt to do that. There's no shortage of open-source chatbots, of course, but I haven't seen many that utilize OpenAI function calling features. Even if they do, it's just for demo purposes, and their functions return hard-coded responses.
+
+## Significance of function calling
+
+The essence of function calling lies in its versatility and its potential to extend the capabilities of a standard chatbot. For instance, take this function:
+
+```python
+{
+  "name": "get_search_results",
+  "description": "Used to get search results when the user asks for it",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "query": {
+        "type": "string",
+        "description": "The query to search for"
+      }
+    }
+  }
+}
+```
+
+When the user queries "What's the current weather in Bratislava?", the chatbot identifies the purpose of the query and calls the relevant function `get_current_weather()`. It then passes the necessary parameters—longitude and latitude, which are inferred from the location 'Bratislava'—to the function.
+
+```python
+@staticmethod
+def get_current_weather(longitude, latitude):
+    """Get the current weather for a location"""
+    try:
+        url = "https://api.open-meteo.com/v1/forecast"
+        params = {
+            "latitude": latitude,
+            "longitude": longitude,
+            "current_weather": "true",
+            "timezone": "Europe/Berlin",
+        }
+        response = requests.get(url, params=params)
+        response.raise_for_status()
+        data = response.json()
+        return json.dumps(data["current_weather"])
+    except requests.exceptions.HTTPError as http_err:
+        print(f"HTTP error occurred: {http_err}")
+    except Exception as err:
+        print(f"Other error occurred: {err}")
+    return json.dumps({"error": "Failed to get weather"})
+```
+
+The function connects with a weather API, fetches the data, and provides it to the chatbot, which then incorporates this data in its response.
+
+## Sequential function calling
+
+I also tried experimenting with what I call 'sequentially chained' function calling, where the bot triggers multiple function calls based on a single user query. Consider this query: "Search the web for the largest city in Belgium and get the current weather there". Here, the chatbot initially calls the `get_search_results()` function, providing the user query as an argument.
+
+```python
+{
+  "name": "get_search_results",
+  "description": "Used to get search results when the user asks for it",
+  "parameters": {
+    "type": "object",
+    "properties": {
+      "query": {
+        "type": "string",
+        "description": "The query to search for"
+      }
+    }
+  }
+}
+```
+
+This function interfaces with a Search Engine Results Pages (SERP) API and returns the search result, which in this case would be 'Brussels'. Next, it calls the `get_current_weather()` function using 'Brussels' as an argument. This function interfaces with the weather API, fetches the weather data, and supplies it to the chatbot. Through this series of function calls, the bot is able to perform intricate tasks and provide precise and accurate information to the user.
+
+```python
+@staticmethod
+def get_search_results(query):
+    """Get search results for a query"""
+    try:
+        llm = ChatOpenAI(temperature=0, model="gpt-3.5-turbo-0613")
+        search = SerpAPIWrapper(
+            serpapi_api_key=os.getenv("SERPAPI_API_KEY"),
+        )
+        tools = [
+            Tool(
+                name="Search",
+                func=search.run,
+                description="useful for when you need to answer questions about current events. You should ask targeted questions",
+            )
+        ]
+        agent = initialize_agent(
+            tools, llm, agent=AgentType.OPENAI_FUNCTIONS, verbose=True
+        )
+        res = agent.run(query)
+        return json.dumps(res)
+    except Exception as e:
+        print(f"Error getting search results: {e}")
+        return json.dumps({"error": "Failed to get search results"})
+```
+
+## Managing conversational iterations
+
+In a typical conversation without function calls, a single iteration—a response from the language model—is usually sufficient. However, with function calls, additional iterations are required for the model to process the function's output and generate a response.
+
+One of the significant challenges I faced during development was ensuring that the correct number of iterations was handled for each user query. To overcome this, I designed the `run_conversation()` function to manage the number of iterations dynamically.
+
+```python
+@cl.on_message
+async def run_conversation(user_message: str):
+    message_history = cl.user_session.get("message_history")
+    message_history.append({"role": "user", "content": user_message})
+
+    cur_iter = 0
+    MAX_ITER = 5
+
+    while cur_iter < MAX_ITER:
+        openai_message = {"role": "", "content": ""}
+        function_ui_message = None
+        content_ui_message = cl.Message(content="")
+
+        # Stream the responses from OpenAI
+        model_response = await get_model_response(message_history)
+        async for stream_resp in model_response:
+            if "choices" not in stream_resp:
+                print(f"No choices in response: {stream_resp}")
+                return
+
+            new_delta = stream_resp.choices[0]["delta"]
+            (
+                openai_message,
+                content_ui_message,
+                function_ui_message,
+            ) = await process_new_delta(
+                new_delta, openai_message, content_ui_message, function_ui_message
+            )
+
+        # Append message to history
+        message_history.append(openai_message)
+        if function_ui_message is not None:
+            await function_ui_message.send()
+
+        # Function call
+        if openai_message.get("function_call"):
+            function_name = openai_message.get("function_call").get("name")
+            arguments = ast.literal_eval(
+                openai_message.get("function_call").get("arguments")
+            )
+
+            await process_function_call(function_name, arguments, message_history)
+
+            cur_iter += 1
+        else:
+            break
+```
+
+`run_conversation()` is at the heart of the conversation flow. Each time a user sends a message, it's appended to the message history. Then, the application begins processing responses from OpenAI, managing any function calls as necessary.
+
+This initiates a loop, which can run up to a predefined number of iterations (`MAX_ITER`). Each loop iteration represents a turn in the conversation, where the AI prepares a response, and if it's a function call, processes it.
+
+Each time a user message is received, the function begins iterating. It initializes an empty message object, `openai_message`, and two `cl.Message` objects for UI messages, `function_ui_message` and `content_ui_message`.
+
+The code below retrieves the model response from the OpenAI API using the given message history. It utilizes a predefined schema for functions and the function call to execute, along with the temperature parameter and model name.
+
+```python
+async def get_model_response(message_history):
+    try:
+        return await openai.ChatCompletion.acreate(
+            model=MODEL_NAME,
+            messages=message_history,
+            functions=FUNCTIONS_SCHEMA,
+            function_call=FUNCTION_CALL,
+            temperature=MODEL_TEMPERATURE,
+            stream=True,
+        )
+    except Exception as e:
+        print(f"Error getting model response: {e}")
+        return None
+```
+
+The user's message is added to the `message_history`, which records the entire conversation. This is crucial as the conversation history influences the model's responses, maintaining the conversation's coherence and context-awareness.
+
+The message history is sent to the OpenAI API for a response. The incoming responses are processed and stored. If a function call is part of the message, the function name and arguments are extracted and processed.
+
+```python
+# Function call
+if openai_message.get("function_call"):
+    function_name = openai_message.get("function_call").get("name")
+    arguments = ast.literal_eval(openai_message.get("function_call").get("arguments"))
+
+    await process_function_call(function_name, arguments, message_history)
+
+    cur_iter += 1
+```
+
+This part of the `run_conversation()` processes function calls made by the user or the OpenAI model during a conversation. If the function name exists in the predefined mapping, it invokes that function with the given arguments and adds the response to the message history. If the function is unknown, it logs an error.
+
+```python
+async def process_function_call(function_name, arguments, message_history):
+    if function_name in FUNCTIONS_MAPPING:
+        function_response = FUNCTIONS_MAPPING[function_name](**arguments)
+        message_history.append(
+            {
+                "role": "function",
+                "name": function_name,
+                "content": function_response,
+            }
+        )
+        await send_response(function_name, function_response)
+    else:
+        print(f"Unknown function: {function_name}")
+```
+
+The function's output is appended to the `message_history`, one iteration is completed, and `cur_iter` is incremented. This loop continues until the maximum iterations are reached or there are no more function calls.
+
+This dynamic approach enables the chatbot to handle varying numbers of iterations for each user query, ensuring the user receives a complete, natural language response regardless of the number of function calls their query involves. This adaptive design of the run_conversation function has been instrumental in overcoming the challenges encountered during the development of this chatbot.
+
+## Link to GitHub repo
+
+[Find the code here](https://github.com/dissorial/Chainlit-OpenAI-Functions)
