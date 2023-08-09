@@ -9,8 +9,7 @@ import {
 import { siteConfig } from "@/config/site"
 import { cn } from "@/lib/utils"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Button, buttonVariants } from "@/components/ui/button"
-import { Icons } from "@/components/icons"
+import { buttonVariants } from "@/components/ui/button"
 
 export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
   return (

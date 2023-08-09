@@ -4,7 +4,7 @@ import { Blogpost } from "contentlayer/generated"
 import { blogConfig } from "@/config/blog"
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
-import { Icons } from "@/components/icons"
+import { SomeIcons } from "@/components/some-icons"
 
 interface BlogPagerProps {
   blogpost: Blogpost
@@ -24,7 +24,7 @@ export function DocsPager({ blogpost }: BlogPagerProps) {
           href={pager.prev.href}
           className={cn(buttonVariants({ variant: "ghost" }))}
         >
-          <Icons.chevronLeft className="mr-2 h-4 w-4" />
+          <SomeIcons.chevronLeft className="mr-2 h-4 w-4" />
           {pager.prev.title}
         </Link>
       )}
@@ -34,7 +34,7 @@ export function DocsPager({ blogpost }: BlogPagerProps) {
           className={cn(buttonVariants({ variant: "ghost" }), "ml-auto")}
         >
           {pager.next.title}
-          <Icons.chevronRight className="ml-2 h-4 w-4" />
+          <SomeIcons.chevronRight className="ml-2 h-4 w-4" />
         </Link>
       )}
     </div>

@@ -1,7 +1,7 @@
 import { User } from "@prisma/client"
-import type { Icon } from "lucide-react"
+import type { Icon } from "@radix-ui"
 
-import { Icons } from "@/components/icons"
+import { SomeIcons } from "@/components/some-icons"
 
 export type NavItem = {
   title: string
@@ -15,7 +15,7 @@ export type SidebarNavItem = {
   title: string
   disabled?: boolean
   external?: boolean
-  icon?: keyof typeof Icons
+  icon?: keyof typeof SomeIcons
 } & (
   | {
       href: string
