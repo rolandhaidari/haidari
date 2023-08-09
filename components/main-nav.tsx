@@ -50,17 +50,6 @@ export function MainNav() {
         >
           Blog
         </Link>
-        <Link
-          href="/contact"
-          className={cn(
-            "transition-colors hover:text-foreground/80",
-            pathname?.startsWith("/contact")
-              ? "text-foreground"
-              : "text-foreground/60"
-          )}
-        >
-          Contact
-        </Link>
       </nav>
     </div>
   )

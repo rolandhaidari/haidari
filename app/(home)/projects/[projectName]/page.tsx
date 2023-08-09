@@ -10,13 +10,64 @@ import {
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header"
-
+import { env } from "@/env.mjs"
 import { ProjectGallery } from "../components/project-gallery"
 import { ProjectChallengeSVG, ProjectSolutionSVG } from "../components/svg"
+import { absoluteUrl } from "@/lib/utils"
 
-export const metadata: Metadata = {
-  title: "Dashboard",
-  description: "Example dashboard app using the components.",
+interface ProjectPageProps {
+  params: {
+    slug: string[]
+  }
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { projectName: string }
+}): Promise<Metadata> {
+  const project = PROJECTS.find(
+    (project) => project.projectName === params.projectName
+  )
+
+  if (!project) {
+    return {}
+  }
+
+  const url = env.NEXT_PUBLIC_APP_URL
+
+  const ogUrl = new URL(`${url}/api/og`)
+  ogUrl.searchParams.set(
+    "heading",
+    project.description ?? project.project_title
+  )
+  ogUrl.searchParams.set("type", "Blog")
+  ogUrl.searchParams.set("mode", "dark")
+
+  return {
+    title: project.project_title,
+    description: project.description,
+    openGraph: {
+      title: project.project_title,
+      description: project.description,
+      type: "article",
+      url: absoluteUrl(project.projectName),
+      images: [
+        {
+          url: ogUrl.toString(),
+          width: 1200,
+          height: 630,
+          alt: project.project_title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.project_title,
+      description: project.description,
+      images: [ogUrl.toString()],
+    },
+  }
 }
 
 export default function SingleProjectPage({
