@@ -11,7 +11,7 @@ import {
 import { Badge } from "./ui/badge"
 import { Progress } from "@/components/ui/progress"
 
-export function SomeCard({ tech }) {
+export function SomeCard({ tech, homePage }) {
   return (
     <Card>
       <CardHeader className="grid grid-cols-[1fr_40px] items-start gap-4 space-y-0">
@@ -29,9 +29,14 @@ export function SomeCard({ tech }) {
           )}
         </div>
       </CardHeader>
-      <CardFooter>
-        {<Progress value={tech?.usage} className="w-[60%]" />}
-      </CardFooter>
+      {
+        !homePage && (
+          <CardFooter>
+          {<Progress value={tech?.usage} className="w-[60%]" />}
+        </CardFooter>
+        )
+      }
+
     </Card>
   )
 }
