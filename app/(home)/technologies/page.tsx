@@ -93,7 +93,7 @@ export default function TechnologiesPage() {
       </PageHeader>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-2">
         {TECH_STACK_ALL.map((tech) => (
-          <SomeCard key={tech.title} tech={tech} />
+          <SomeCard key={tech.title} tech={tech} homePage={false} />
         ))}
       </div>
     </section>
