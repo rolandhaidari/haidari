@@ -3,8 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "author": {
-    "name": "Erik Závodský",
-    "url": "https://www.linkedin.com/in/erik-zavodsky/"
+    "name": "Roland Haidari",
+    "url": "https://www.linkedin.com/in/roland-haidari/"
   },
   "scripts": {
     "dev": "concurrently \"contentlayer dev\" \"next dev\"",

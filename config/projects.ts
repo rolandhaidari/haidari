@@ -1,22 +1,21 @@
 export const PROJECTS = [
   {
-    projectName: "recipe-saas-demo",
-    project_title: "Full-stack recipe SaaS demo app",
+    projectName: "superset",
+    project_title: "Launch data exploration & visualisation platform",
     tech_stack: [
-      "TypeScript",
-      "Next.js",
-      "React",
-      "Tailwind",
-      "Supabase",
-      "Stripe",
-      "PostgreSQL",
-      "shadcn",
+      "Superset",
+      "Terraform",
+      "Gitlab",
+      "Docker",
+      "Flask-AppBuilder",
+      "Kubernetes",
+      "Keycloak",
     ],
     description:
-      "Auth, payments, protected routes, CRUD operations, webhooks, server actions, and more.",
+      "Custom permission system, data sources and dashboards using Apache Superset",
     year: "2023",
-    area: "Full-stack",
-    github: "https://github.com/dissorial/recipe-saas-demo",
+    area: "Cloud",
+    
     images: [
       "/images/projects/recipe-saas-demo/01.jpg",
       "/images/projects/recipe-saas-demo/02.png",
@@ -25,55 +24,53 @@ export const PROJECTS = [
     ],
     tabs: [
       {
-        title: "Supabase clients",
-        value: "supabase_clients",
+        title: "Permission system",
+        value: "permission_system",
         content: [
           {
             type: "Challenge",
             description:
-              "Supabase offers several types of clients, such route handler, server action, server component, client component and other clients. It was challenging to understand the differences between them and how to use them.",
+              "Superset offers a basic permission system that did not meet the requirements of the project. Considering the project deals with sensitive data that should be protected from unauthorized access, the challenge was to implement a custom permission system that allows for fine-grained control over data sources, dashboards, and charts.",
           },
           {
             type: "Solution",
             description:
-              "Using the server client for RSC was straightforward. For client components, I used auth helpers to wrap the application in a context provider that would allow me to desctructure values (e.g. session).",
+              "Digging deep into the Flask AppBuilder framework, I extended the existing permission system to include custom roles and permissions. This allowed me to define access control rules based on user roles and groups, ensuring that only authorized users could access specific data sources and dashboards.",
           },
         ],
       },
       {
-        title: "Session storage",
-        value: "session_storage",
+        title: "Integration with Keycloak",
+        value: "keycloak",
         content: [
           {
             type: "Challenge",
             description:
-              "Dynamic routes, such as those utilizing cookies, cannot be statically generated. This presented a challenge in terms of performance optimization.",
+              "The project required integration with an existing Keycloak server for user authentication and authorization. The challenge was to set up a secure connection between Superset and Keycloak, allowing users to log in using their Keycloak credentials and access Superset resources based on their Keycloak roles.",
           },
           {
             type: "Solution",
             description:
-              "I am not sure I arrived at a solution. I hoped the issue would be resolved by caching the server component client that stores the session and rely on the middleware to do the rest, but that did not work.",
+              "The solution was a custom role mapping service that based on the roles given by the keycloak server adjusted the permissions of the user.",
           },
         ],
       },
     ],
   },
   {
-    projectName: "chat-app",
-    project_title: "Real-time responsive chat application",
+    projectName: "Azure ML Pipeline",
+    project_title: "Azure ML Pipeline",
     tech_stack: [
-      "TypeScript",
-      "React",
-      "Next.js",
-      "Tailwind",
-      "Prisma",
-      "MongoDB",
+      "Jenkins",
+      "Azure",
+      "Python",
+      "MLflow ",
+      "Terraform",
     ],
     description:
-      "Real-time responsive chat application with authentication, group chats and read receipts",
+      "Updating outdated pipeline to the new versions of Jenkins, Azure ML and Terraform. Making the pipeline flexible and easy to extend for new projects. Handling different types of compute, models and metrics.",
     year: "2023",
-    area: "Full-stack",
-    github: "https://github.com/dissorial/real-time-chat-app",
+    area: "Cloud",
     images: [
       "/images/projects/chat-app/01.webp",
       "/images/projects/chat-app/02.webp",
@@ -82,50 +79,50 @@ export const PROJECTS = [
     ],
     tabs: [
       {
-        title: "Real-time features",
-        value: "real_time_features",
+        title: "Environment",
+        value: "environment",
         content: [
           {
             type: "Challenge",
             description:
-              "Developing real-time features like messaging and read/unseen receipts, maintaining user status (offline/online), and handling file uploads presented challenges in terms of data synchronization and handling traffic in real-time.",
+              "Not only the commands, but also the environment was incompatible with the new versions of the tools. The challenge was to update the environment to the new versions of Jenkins, Azure ML and Terraform.",
           },
           {
             type: "Solution",
             description:
-              "I leveraged Pusher's real-time capabilities to facilitate instant messaging, file uploads, and read/unseen receipts.",
+              "I created a new environment with the new versions of the tools and updated the pipeline to work with the new environment.",
           },
         ],
       },
       {
-        title: "User authentication",
-        value: "user_authentication",
+        title: "Flexibility",
+        value: "flexibility",
         content: [
           {
             type: "Challenge",
             description:
-              "Implementing secure user registration and login authentication while ensuring a smooth user experience.",
+              "This project required a high level of flexibility, as it is inteded to be used as a template to accelerate the development of new pipelines.",
           },
           {
             type: "Solution",
             description:
-              "I used Next.js API routes for handling registration and login requests securely. User passwords were hashed before storing in MongoDB via Prisma, and JSON Web Tokens (JWTs) were used for maintaining user sessions.",
+              "I used Terraform to create a flexible infrastructure that can be easily modified and extended to meet the requirements of new projects. I designed the relavant parts to be adjustable in a single configuration file.",
           },
         ],
       },
       {
-        title: "Group chat conversations",
-        value: "group_chat_conversations",
+        title: "Model and Metrics",
+        value: "model_and_metrics",
         content: [
           {
             type: "Challenge",
             description:
-              "Creating and managing group chats demanded an efficient data schema and careful state management to ensure smooth conversation flow and user-specific data.",
+              "The pipeline needed to be able to handle different types of models and metrics, and to be able to store and retrieve them from the Azure ML workspace.",
           },
           {
             type: "Solution",
             description:
-              "MongoDB, in conjunction with Prisma, was used to structure a scalable data model to handle group chats. Each message was associated with a user and a chat group, enabling easy data retrieval and real-time updates with Pusher.",
+              "I used MLflow to track the models and metrics, and to store them in the Azure ML workspace. I adjusted the existing model script to use mlflow and log the metrics to the Azure ML workspace.",
           },
         ],
       },

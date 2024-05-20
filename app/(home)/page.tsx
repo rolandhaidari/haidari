@@ -12,7 +12,7 @@ import { Testimonial } from "@/components/testimonial"
 
 import { ProjectCard } from "./projects/components/project-card"
 
-const selectedProjects = ["recipe-saas-demo", "interactive-document-chatbot"]
+const selectedProjects = ["recipe-saas-demo", "superset"]
 
 const TECH_STACK_HOMEPAGE = [
   {
@@ -51,20 +51,20 @@ export default async function IndexPage() {
       <section className="space-y-6 pb-8 pt-6 md:pb-12 md:pt-10 lg:py-32">
         <div className="container flex max-w-[64rem] flex-col items-center gap-4 text-center">
           <Link
-            href={siteConfig.links.twitter}
+            href={siteConfig.links.linkedin}
             className="rounded-2xl bg-muted px-4 py-1.5 text-sm font-medium"
             target="_blank"
           >
-            Open to new projects
+            Open to new opportunities
           </Link>
           <h1 className="font-heading text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
-            Erik Závodský
+            Roland Haidari
           </h1>
 
           <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-xl sm:leading-8">
-            Leveraging the power of modern technologies to create fully
-            functional and well-designed web applications and websites. Explore
-            ↓
+            Using modern technologies to create cutting-edge <strong>cloud</strong> architectures and <strong>data</strong> solutions.
+            With a long history of building complex applications and services, 
+            I have a passion for many different areas of software technologies. Explore ↓
           </p>
         </div>
       </section>
@@ -77,8 +77,8 @@ export default async function IndexPage() {
             Selected projects
           </h2>
           <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-            I have built a bunch of different projects. I explore different tech
-            stacks and areas of interest. Here are some of my favorites.
+            I have built various projects. Over the years I explored different tech
+            stacks and areas. Here are some of my favorites.
           </p>
         </div>
         <div className="flex-1 space-y-4">
@@ -127,8 +127,8 @@ export default async function IndexPage() {
             Services
           </h2>
           <p className="max-w-[42rem] leading-normal text-muted-foreground sm:text-lg sm:leading-7">
-            Here are some of the services I offer. I&apos;m always open to new
-            ideas and projects, so feel free to reach out.
+            Here are some of the fields I have experience in. I&apos;m always open to new
+            opportunities, so feel free to reach out.
           </p>
         </div>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3 lg:flex-row">

@@ -29,7 +29,7 @@ export const metadata = {
   },
   description: siteConfig.description,
   keywords: [
-    "Erik Závodský",
+    "Roland Haidari",
     "Portfolio",
     "Next.js",
     "React",
@@ -38,11 +38,11 @@ export const metadata = {
   ],
   authors: [
     {
-      name: "Erik Závodský",
-      url: "https://erikzavodsky.com",
+      name: "Roland Haidari",
+      url: "https://haidari.sk",
     },
   ],
-  creator: "Erik Závodský",
+  creator: "Roland Haidari",
   themeColor: [
     { media: "(prefers-color-scheme: light)", color: "white" },
     { media: "(prefers-color-scheme: dark)", color: "black" },
