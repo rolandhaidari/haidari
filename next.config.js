@@ -12,9 +12,6 @@ const nextConfig = {
     domains: ["avatars.githubusercontent.com", "images.unsplash.com"],
     formats: ['image/webp']
   },
-  experimental: {
-    appDir: true,
-  },
 }
 
 const withContentlayer = createContentlayerPlugin({

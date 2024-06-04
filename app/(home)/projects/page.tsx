@@ -29,10 +29,9 @@ export default function ProjectsPage() {
         <Tabs defaultValue="all_projects">
           <TabsList className="mx-auto flex flex-wrap">
             <TabsTrigger value="all_projects">All projects</TabsTrigger>
+            <TabsTrigger value="cloud">Cloud</TabsTrigger>
             <TabsTrigger value="full_stack">Full-stack</TabsTrigger>
             <TabsTrigger value="data">Data</TabsTrigger>
-            <TabsTrigger value="front_end">Front-end</TabsTrigger>
-            <TabsTrigger value="web_design">Web design</TabsTrigger>
           </TabsList>
 
           <TabsContent value="all_projects">
@@ -42,10 +41,10 @@ export default function ProjectsPage() {
               ))}
             </div>
           </TabsContent>
-          <TabsContent value="front_end">
+          <TabsContent value="cloud">
             <div className="grid grid-cols-2 gap-4">
               {PROJECTS.filter((project) =>
-                project.area.includes("Front-end")
+                project.area.includes("Cloud")
               ).map((project) => (
                 <ProjectCard key={project.projectName} project={project} />
               ))}
@@ -69,15 +68,7 @@ export default function ProjectsPage() {
               )}
             </div>
           </TabsContent>
-          <TabsContent value="web_design">
-            <div className="grid grid-cols-2 gap-4">
-              {PROJECTS.filter((project) =>
-                project.area.includes("Web design")
-              ).map((project) => (
-                <ProjectCard key={project.projectName} project={project} />
-              ))}
-            </div>
-          </TabsContent>
+          
         </Tabs>
       </div>
     </div>

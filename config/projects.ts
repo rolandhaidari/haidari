@@ -14,7 +14,7 @@ export const PROJECTS = [
     description:
       "Custom permission system, data sources and dashboards using Apache Superset",
     year: "2023",
-    area: "Cloud",
+    area: ["Cloud", "Data"],
     
     images: [
       "/images/projects/recipe-saas-demo/01.jpg",
@@ -70,7 +70,7 @@ export const PROJECTS = [
     description:
       "Updating outdated pipeline to the new versions of Jenkins, Azure ML and Terraform. Making the pipeline flexible and easy to extend for new projects. Handling different types of compute, models and metrics.",
     year: "2023",
-    area: "Cloud",
+    area: ["Cloud", "Data"],
     images: [
       "/images/projects/chat-app/01.webp",
       "/images/projects/chat-app/02.webp",
@@ -129,22 +129,22 @@ export const PROJECTS = [
     ],
   },
   {
-    projectName: "quant-self-analysis",
-    project_title: "Exploratory data analysis",
+    projectName: "data-intensive-sim-app",
+    project_title: "Data-intensive simulation application",
     tech_stack: [
-      "Altair",
-      "Scikit-Learn",
-      "Matplotlib",
-      "Pandas",
-      "Numpy",
+      "React",
+      "Go",
+      "Proto",
+      "gRPC",
       "Python",
-      "Streamlit",
+      "TypeScript",
+      "shadcn",
+      "golang-migrate"
     ],
     description:
-      "Interactive dashboard for exploratory analysis and visualization of +18,000 data points I collected about myself",
-    year: "2023",
-    area: "Full-stack",
-    github: "https://github.com/dissorial/prx21_erikz",
+      "Simulating a network of vehicles on a map, with data processing, visualization and interactive features.",
+    year: "2024",
+    area: ["Full-stack", "Data"],
     images: [
       "/images/projects/quant-self-analysis/01.webp",
       "/images/projects/quant-self-analysis/02.webp",
@@ -153,32 +153,63 @@ export const PROJECTS = [
     ],
     tabs: [
       {
-        title: "Analysis",
-        value: "analysis",
+        title: "Data-intensity",
+        value: "data-intensity",
         content: [
           {
             type: "Challenge",
             description:
-              "Some variables were continuous, others ordinal, a few were binary, and a bunch were quasi-quantitative (time quantity). The other challenge was normalizing and transforming the dataset in a way that is suitable for visualization across many variable types.",
+              "The application was streaming a large amount of data from the backend to the frontend, and processing it in real-time to display the vehicles on the map. This required a high level of data intensity and processing power.",
           },
           {
             type: "Solution",
             description:
-              "I used tools such as RapidMiner, Orange and countless others I can't remember to understand how automatic preprocessing that is optimized out of the box. From this, I extracted several patterns that I applied to my own dataset.",
+              "I optimized the data being streamed so that the client application was able to process the data without lags. Using web-workers and other techniques, I was able to offload some of the processing to the client side, and to display the data in real-time.",
+          },
+        ],
+      },
+      {
+        title: "Massive repository",
+        value: "massive-repository",
+        content: [
+          {
+            type: "Challenge",
+            description:
+              "The existing code base was massive and complex, with multiple layers of abstraction and dependencies. This made it difficult to understand and modify the code, and to add new features or fix bugs.",
+          },
+          {
+            type: "Solution",
+            description:
+              "Initially, I took a deepdive to understand dependencies and document the code and clean up dead code. I then refactored the code to make it more modular and maintainable, and to remove unnecessary dependencies and abstractions.",
+          },
+        ],
+      },
+      {
+        title: "React",
+        value: "react",
+        content: [
+          {
+            type: "Challenge",
+            description:
+              "The frontend was developed in React and TypeScript, and had to be able to display a map with vehicles moving on it, and to interact with the user to allow them to control the simulation and view the data. However, React has been unknown to me beforehand.",
+          },
+          {
+            type: "Solution",
+            description:
+              "I used AI tools such as GitHub Copilot to ease the development and accelerate the process.",
           },
         ],
       },
     ],
   },
   {
-    projectName: "reprex-exercise-database",
-    project_title: "Exercise database",
-    tech_stack: ["Typescript", "React", "Tailwind"],
+    projectName: "etl-and-middleware",
+    project_title: "ETL and middleware",
+    tech_stack: ["Pentaho Data Integration", "Flutter", "Couchbase"],
     description:
-      "Online database with searching and filtering for exercises body part, target muscle or available equipment",
-    year: "2022",
-    area: "Front-end",
-    github: "https://github.com/dissorial/Reprex",
+      "I was responsible for the ETL process and middleware between an enterprise system, a database and a mobile application.",
+    year: "2020",
+    area: ["Full-stack", "Data"],
     images: [
       "/images/projects/reprex-exercise-database/01.webp",
       "/images/projects/reprex-exercise-database/02.webp",
@@ -187,65 +218,58 @@ export const PROJECTS = [
     ],
     tabs: [
       {
-        title: "Optimization",
-        value: "optimization",
+        title: "Data synchronisation",
+        value: "synchronisation",
         content: [
           {
             type: "Challenge",
             description:
-              "Optimizing website performance to account for the animations that come with each exercise, and creating an intuitive user-experience that displayed results in a meaningful way.",
+              "The mobile application required offline access to data, which meant that the data had to be synchronised between the enterprise system and the mobile application. This was a challenge due to the complexity of the data and the need for real-time synchronisation.",
           },
           {
             type: "Solution",
             description:
-              "Utilizing ReactFreezeFrame to dynamically convert GIFs to stationary images on subpages with a large number of exercise cards. In regard to clarity, I included information about body part, target muscle and equipment necessary on each exercise card in a concise manner.",
+              "I used Pentaho Data Integration to create an ETL process that synchronised the data between the enterprise system and the Couchbase Database. I used Couchbase's functionality to handle the synchronisation between the database and the device.",
           },
         ],
       },
     ],
   },
   {
-    projectName: "aria-music-player",
-    project_title: "Aria music",
-    tech_stack: ["JavaScript", "React", "Tailwind", "Redux"],
+    projectName: "data-preprocessing-testing",
+    project_title: "Testing a data preprocessing pipeline",
+    tech_stack: ["Python", "Poetry", "Azure Functions", "pytest"],
     description:
-      "Fully functional music player with song details, artist pages, top charts, discover sections, and more",
-    year: "2022",
-    area: "Front-end",
-    github: "https://github.com/dissorial/Aria",
-    images: [
-      "/images/projects/aria-music-player/01.webp",
-      "/images/projects/aria-music-player/02.webp",
-      "/images/projects/aria-music-player/03.webp",
-      "/images/projects/aria-music-player/04.webp",
-    ],
+      "Tested a data preprocessing pipeline for a predictive model developed in Azure Functions",
+    year: "2023",
+    area: ["Cloud", "Data"],
     tabs: [
       {
-        title: "RapidAPI",
-        value: "optimization",
+        title: "Unit testing",
+        value: "testing",
         content: [
           {
             type: "Challenge",
             description:
-              "This project utilized the ShazamCore API from RapidAPI. At some point during development, certain endpoints were added, changed or removed, which lead to several incompatibilities within the API. The challenge was thus making past and present endpoints compatible.",
+              "The data preprocessing pipeline was developed in Azure Functions to be cost-efficient. Since the project was long-running and it was difficult to introduce new features, without breaking older functionalities, the challenge was to test the pipeline to ensure that it was working correctly and producing the expected output.",
           },
           {
             type: "Solution",
             description:
-              "I opted for modifying the data flow in the application such that it relies more on parameters passed to the URL query upon page redirects. This allowed me to work around storing and retrieving the fetched data from Redux to identify which API endpoints to call.",
+              "I used pytest to write unit tests for the pipeline, and to test the individual components of the pipeline. I integrated the tests into the development pipeline to automate the testing process.",
           },
         ],
       },
     ],
   },
   {
-    projectName: "survey-data",
-    project_title: "Survey data dashboard",
-    tech_stack: ["Python", "Altair", "Pandas", "Matplotlib", "Streamlit"],
+    projectName: "enterprise-ticketing-system",
+    project_title: "Enterprise ticketing system",
+    tech_stack: ["Valuemation", "jython", "JavaScript", "Orchestra"],
     description:
-      "Encryption, access control, monitoring tools, and visualization of survey data",
-    year: "2022",
-    area: "Data",
+      "Developed custom scripts and integrations for an enterprise ticketing system. Integrations connected various other enterprise systems together including SAP. Additionally, the ITSM system was extended with custom features.",
+    year: "2020",
+    area: ["Data"],
 
     images: [
       "/images/projects/survey-data/01.webp",
@@ -254,47 +278,47 @@ export const PROJECTS = [
     ],
     tabs: [
       {
-        title: "Missing values",
-        value: "missing_values",
+        title: "Automated tasks",
+        value: "automated_tasks",
         content: [
           {
             type: "Challenge",
             description:
-              "The survey data contained missing values and errors (such as typos or incorrect responses) that affected the accuracy and quality of my analysis and visualization.",
+              "Synchronizing data between different systems and automating tasks such as ticket creation, assignment, and resolution. The challenge was to develop custom scripts and integrations that could handle the complexity of the enterprise systems and ensure that the data was accurate and up-to-date.",
           },
           {
             type: "Solution",
             description:
-              "I replaced the missing values with estimated values based on other available data or simply remove incomplete records. To identify and correct incorrect data, I compared the survey data against the original survey form and used statistical tests to detect errors.",
+              "Using the ETL tool Orchestra, I developed custom scripts and integrations that connected the enterprise systems together and automated the tasks. Since some tasks were to be repeated at regular intervals, I scheduled the scripts to run automatically at specific times.",
           },
         ],
       },
       {
-        title: "Inconsistent responses",
-        value: "inconsistent_responses",
+        title: "Process visualisation",
+        value: "process_visualisation",
         content: [
           {
             type: "Challenge",
             description:
-              "The survey data contained inconsistent responses, such as conflicting answers to the same question or responses that do not match the expected format. Finally, there were some extreme or unusual values that had the potential to distort the analysis.",
+              "Visualizing the ticketing process and identifying bottlenecks and inefficiencies. The challenge was to replace a tabular way of displaying ticket states and help to optimize the workflows.",
           },
           {
             type: "Solution",
             description:
-              "I standardized the responses by converting them to a consistent format with preprocessing scripts I wrote in Jupyer Notebook, and identified outliers by comparing the values against the expected ranges and distributions.",
+              "Using a JavaScript library, I redesigned the ticketing process to be more visual and intuitive. I created a dynamic diagram that displayed the ticket states and transitions.",
           },
         ],
       },
     ],
   },
   {
-    projectName: "school-dashboard",
-    project_title: "Interactive dashboard",
-    tech_stack: ["Python", "Streamlit", "Pandas", "Altair", "Matplotlib"],
+    projectName: "data-dashboard",
+    project_title: "Data dashboard",
+    tech_stack: ["Vue.js", "JavaScript", "Express.js"],
     description:
-      "Synthesis, analysis and visualization of high school data about grades, assignments and more",
-    year: "2022",
-    area: "Data",
+      "As part of my high-school diploma project, cooperated with IBM Slovakia, I developed an algorithm to determine a success probability of automation projects. The algorithm was integrated into a dashboard.",
+    year: "2018",
+    area: ["Full-stack", "Data"],
     images: [
       "/images/projects/school-dashboard/01.webp",
       "/images/projects/school-dashboard/02.webp",
@@ -304,47 +328,46 @@ export const PROJECTS = [
     ],
     tabs: [
       {
-        title: "Sensitive data",
-        value: "sensitive_data",
+        title: "Small dataset",
+        value: "small_dataset",
         content: [
           {
             type: "Challenge",
             description:
-              "High school data may contain sensitive information such as student names, grades, and attendance records. One of the main challenges when dealing with sensitive data was therefore to ensure that it is only accessible to authorized users.",
+              "The original plan was to train a machine learning model on a large dataset to predict the success probability of automation projects. However, due to time constraints and limited resources, I had to work with a small dataset.",
           },
           {
             type: "Solution",
             description:
-              "I hosted the dashboard on a secure Streamlit server that has been configured to follow best practices with built-in security features and tools to protect the data from unauthorized access.",
+              "I created a custom linear model by determining the weights of the features manually and verified the results with the IBM team. The model was integrated into a dashboard that displayed the success probability of automation projects.",
           },
         ],
       },
       {
-        title: "Auth & encyption",
-        value: "auth_and_encryption",
+        title: "Visualisation",
+        value: "visualisation",
         content: [
           {
             type: "Challenge",
             description:
-              "Another challenge was the risk of data breaches due to vulnerabilities in the system or human error. This could have lead to confidential information being leaked or compromised, potentially causing significant harm to individuals and the organization itself.",
+              "Other than the success probability, the dashboard had to display other relevant information about the automation projects",
           },
           {
             type: "Solution",
             description:
-              "I used hasher modules to encrypt sensitive data. Lastly, I implemented a custom log-in system that granted various types of access depending on user privileges.",
+              "I used Vue.js to create a dynamic and visually appealing dashboard that displayed the success probability of automation projects together with other relevant information, visualized in more easily readable ways.",
           },
         ],
       },
     ],
   },
   {
-    projectName: "night-of-chances",
-    project_title: "NoC concept",
-    tech_stack: ["JavaScript", "React", "Tailwind"],
-    description: "Landing page concept redesign for an event website",
-    year: "2023",
-    area: "Web design",
-    github: "https://github.com/dissorial/night_of_chances",
+    projectName: "vitural-library",
+    project_title: "Virtual library",
+    tech_stack: ["Spring Boot", "Java", "MySQL", "Thymeleaf"],
+    description: "School project to create a website with CRUD operations.",
+    year: "2017",
+    area: ["Full-stack"],
     images: [
       "/images/projects/night-of-chances/01.webp",
       "/images/projects/night-of-chances/02.webp",
@@ -357,54 +380,50 @@ export const PROJECTS = [
     ],
     tabs: [
       {
-        title: "Color scheme",
-        value: "color_scheme",
+        title: "Spring Boot",
+        value: "spring_boot",
         content: [
           {
             type: "Challenge",
             description:
-              "Choosing a color scheme that was both visually appealing and complemented the content. I had to consider factors such as contrast, readability, and consistency.",
+              "The assignment was to create a website with CRUD operations using Spring Boot, a framework I had never worked with before.",
           },
           {
             type: "Solution",
             description:
-              "I settled on a color scheme that used contrasting colors to draw attention to important information, while also maintaining readability. I used a monochromatic color palette to create a cohesive and professional look.",
+              "I learned Spring Boot from scratch and created a virtual library website that allowed users to add, edit, and delete books. I used Thymeleaf to create dynamic web pages that displayed the books in a visually appealing way.",
           },
         ],
       },
       {
-        title: "Displaying information",
-        value: "displaying_information",
+        title: "Database",
+        value: "database",
         content: [
           {
             type: "Challenge",
             description:
-              "Efficiently displaying a large amount of information while still maintaining readability and clarity. I had to experiment with different layouts to find one that worked well for the content.",
+              "The website had to store information about the books in a database, and I had to design the database schema and connect it to the Spring Boot application.",
           },
           {
             type: "Solution",
             description:
-              "I settled on a grid-based design that efficiently displayed the information while also creating a balanced visual hierarchy. I used whitespace to create separation between different sections and typography to guide the user's eye.",
+              "I used MySQL to create a database that stored information about the books, such as the title, author, and genre. I used JPA to connect the database to the Spring Boot application and perform CRUD operations on the books.",
           },
         ],
       },
     ],
   },
   {
-    projectName: "netflix-clone",
-    project_title: "Lightweight Netflix clone",
+    projectName: "fast search",
+    project_title: "Fast search with Elasticsearch",
     tech_stack: [
-      "MongoDB",
-      "Next.js",
-      "Prisma",
-      "React",
-      "Tailwind",
-      "TypeScript",
+      "Elasticsearch",
+      "Python",
+      "Docker",
     ],
-    description: "Auth, SSR and the beloved Netflix-like UI/UX",
+    description: "Developed a fast search engine for a large dataset using Elasticsearch. The search engine was meant for a specific dataset and had to be able to handle large amounts of requests simultaneously.",
     year: "2023",
-    area: "Full-stack",
-    github: "https://github.com/dissorial/netflix-clone",
+    area: ["Cloud", "Data"],
     images: [
       "/images/projects/netflix-clone/01.webp",
       "/images/projects/netflix-clone/02.webp",
@@ -413,30 +432,30 @@ export const PROJECTS = [
     ],
     tabs: [
       {
-        title: "Back-end",
-        value: "back_end",
+        title: "Data ingestion",
+        value: "data_ingestion",
         content: [
           {
             type: "Challenge",
             description:
-              "Building a scalable and efficient back-end architecture to handle user authentication and data storage. Integrating MongoDB with Prisma to manage data and provide an intuitive API for the front-end.",
+              "The search engine had to be able to handle a large dataset and to ingest the data quickly and efficiently. The challenge was to design a data ingestion process that could handle the large dataset and to optimize the search engine for fast search queries.",
           },
           {
             type: "Solution",
             description:
-              "Leveraged Prisma’s powerful features to simplify database management and reduce boilerplate code. Implemented robust error handling and validation mechanisms to ensure data consistency.",
+              "I used Python to develop a data ingestion process that extracted the data from the dataset and indexed it in Elasticsearch. I used Docker to containerize the search engine and to deploy it on a Kubernetes cluster.",
           },
         ],
       },
     ],
   },
   {
-    projectName: "roxor",
-    project_title: "Roxor restaurant concept",
-    tech_stack: ["Figma"],
-    description: "Conceptual design for a restaurant website using Figma",
-    year: "2023",
-    area: "Web design",
+    projectName: "infrastructure_monitoring",
+    project_title: "Infrastructure monitoring",
+    tech_stack: ["Zabbix"],
+    description: "Set up a monitoring system for an infrastructure with Zabbix. The system had to monitor various metrics such as CPU usage, memory usage, disk space, and network traffic. The system had to be able to send alerts when the metrics exceeded certain thresholds or systems were not available.",
+    year: "2020",
+    area: ["Cloud"],
     images: [
       "/images/projects/roxor/01.webp",
       "/images/projects/roxor/02.webp",
@@ -445,145 +464,5 @@ export const PROJECTS = [
       "/images/projects/roxor/05.webp",
       "/images/projects/roxor/06.webp",
     ],
-  },
-  {
-    projectName: "hotel-nivy",
-    project_title: "Hotel Nivy concept",
-    tech_stack: ["Figma"],
-    description: "Conceptual design for a hotel website using Figma",
-    year: "2023",
-    area: "Web design",
-    images: [
-      "/images/projects/hotel-nivy/01.webp",
-      "/images/projects/hotel-nivy/02.webp",
-      "/images/projects/hotel-nivy/03.webp",
-      "/images/projects/hotel-nivy/04.webp",
-      "/images/projects/hotel-nivy/05.webp",
-      "/images/projects/hotel-nivy/06.webp",
-    ],
-  },
-  {
-    projectName: "web-scraper",
-    project_title: "JavaScript web scraper",
-    tech_stack: ["JavaScript", "Puppeteer"],
-    description:
-      "Headless, utilizing Puppeteer with integrated datacenter rotating proxies and language translation",
-    year: "2023",
-    area: "Data",
-    images: [
-      "/images/projects/web-scraper/01.webp",
-      "/images/projects/web-scraper/02.webp",
-      "/images/projects/web-scraper/03.webp",
-      "/images/projects/web-scraper/04.webp",
-      "/images/projects/web-scraper/05.webp",
-    ],
-    tabs: [
-      {
-        title: "Translation",
-        value: "translation",
-        content: [
-          {
-            type: "Challenge",
-            description:
-              "The target website was a Polish e-shop with slow load times and a challenging navigation system.",
-          },
-          {
-            type: "Solution",
-            description:
-              "I found a Node.js library for Google Translate and wrote a script to translate the scraped JSON files from Polish to Slovak.",
-          },
-        ],
-      },
-      {
-        title: "CAPTCHAs and proxies",
-        value: "captchas_proxies",
-        content: [
-          {
-            type: "Challenge",
-            description:
-              "Avoiding CAPTCHAs and other forms of blocking due to the detection of code navigating the website was a challenge every step of the way. Finding the right type of proxy to use for the project also proved to be difficult.",
-          },
-          {
-            type: "Solution",
-            description:
-              "Used the puppeteer-extra modular plugin and its extra-plugin-stealth feature to apply evasion techniques and make it more difficult for websites to detect headless puppeteer. I used datacenter proxies from webshare.io, and integrated iterative proxy rotation into the code.",
-          },
-        ],
-      },
-    ],
-  },
-  {
-    projectName: "interactive-document-chatbot",
-    project_title: "Interactive document chatbot",
-    tech_stack: [
-      "TypeScript",
-      "Next.js",
-      "React",
-      "Tailwind",
-      "MongoDB",
-      "Pinecone",
-      "LangChain",
-    ],
-    description:
-      "Text embeddings and vectorization for interactive document retrieval and question-answering tasks, powered by GPT",
-    year: "2023",
-    area: "Full-stack",
-    github: "https://github.com/dissorial/doc-chatbot",
-    images: [
-      "/images/projects/interactive-document-chatbot/01.webp",
-      "/images/projects/interactive-document-chatbot/02.webp",
-      "/images/projects/interactive-document-chatbot/03.webp",
-      "/images/projects/interactive-document-chatbot/04.webp",
-    ],
-    tabs: [
-      {
-        title: "File uploads",
-        value: "file_uploads",
-        content: [
-          {
-            type: "Challenge",
-            description:
-              "Accurately parsing and extracting content from uploaded files involved various file formats with unique parsing intricacies. Handling temporary file uploads and precise deletion post-conversion in Vercel deployment was crucial.",
-          },
-          {
-            type: "Solution",
-            description:
-              "I created API routes for uploading files to a temporary directory and extracting document content using open-source or LangChain document loaders. File content was converted to vector embeddings, stored in Pinecone and MongoDB namespaces, and temporary files were deleted.",
-          },
-        ],
-      },
-      {
-        title: "Multiple chat sessions",
-        value: "multiple_chat_sessions",
-        content: [
-          {
-            type: "Challenge",
-            description:
-              "Allowing unlimited namespaces and chat windows required careful UI design, state management, and a robust MongoDB backend for data persistence. Many components' data had to be re-fetched during relaunch or user login.",
-          },
-          {
-            type: "Solution",
-            description:
-              "API routes handled chat creation, deletion, and storage in MongoDB. Each chat and namespace had unique IDs and user associations for easy retrieval upon login.",
-          },
-        ],
-      },
-      {
-        title: "Data ingestion",
-        value: "data_ingestion",
-        content: [
-          {
-            type: "Challenge",
-            description:
-              "Ingesting extracted content, converting it into vector embeddings using OpenAI's API, and storing it in Pinecone for retrieval required a rigorous understanding of text embeddings and efficient data handling.",
-          },
-          {
-            type: "Solution",
-            description:
-              "OpenAI's API converted document content into vector embeddings, while LangChain's text splitter handled preprocessing. Embeddings were efficiently stored in Pinecone for quick retrieval during chat queries.",
-          },
-        ],
-      },
-    ],
-  },
+  }
 ]

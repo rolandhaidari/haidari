@@ -19,7 +19,7 @@ interface Project {
   project_title: string
   description: string
   year: string
-  area: string
+  area: string[]
   github?: string
   images: string[]
 }
@@ -46,15 +46,18 @@ export function ProjectCard({ project }: { project: Project }) {
         </CardHeader>
         <CardContent className="space-y-4">
           {/* <CardContent className="space-y-4 relative h-full w-full"> */}
-          <AspectRatio ratio={1.875 / 1}>
-            <Image
-              src={project.images[0]}
-              alt="Photo by Drew Beamer"
-              fill
-              sizes="(max-width: 1280px) 100vw, 50vw"
-              className="rounded-md object-cover"
-            />
-          </AspectRatio>
+
+          {project.images && project.images.length > 0 && (
+            <AspectRatio ratio={1.875 / 1}>
+              <Image
+                src={project.images[0]}
+                alt="Photo by Drew Beamer"
+                fill
+                sizes="(max-width: 1280px) 100vw, 50vw"
+                className="rounded-md object-cover"
+              />
+            </AspectRatio>
+          )}
 
           {/* <div className="bg-red-400">
           <Image
@@ -66,8 +69,10 @@ export function ProjectCard({ project }: { project: Project }) {
         </div> */}
 
           <div className="flex space-x-4 text-sm text-muted-foreground">
-            <div className="flex items-center">
-              <Badge>{project.area}</Badge>
+            <div className="flex items-center space-x-4">
+              {project.area.map((area, index) => (
+                <Badge key={index}>{area}</Badge>
+              ))}
             </div>
             <Badge className="flex items-center">
               <CalendarIcon className="mr-1 h-3 w-3" />

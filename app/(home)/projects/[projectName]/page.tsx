@@ -166,10 +166,12 @@ export default async function SingleProjectPage({
 
         <div className="pt-6">
           <div className="mb-2 flex flex-row justify-between">
-            <p className="text-md flex items-center font-medium leading-none">
-              Scroll
-              <ArrowDownIcon className="ml-2 h-5 w-5 fill-current" />
-            </p>
+            {PROJECT_IMAGES && PROJECT_IMAGES.length > 0 && (
+              <p className="text-md flex items-center font-medium leading-none">
+                Scroll
+                <ArrowDownIcon className="ml-2 h-5 w-5 fill-current" />
+              </p>
+            )}
             {project?.github && (
               <Link href={project?.github} target="_blank" rel="noreferrer">
                 <div
@@ -187,9 +189,11 @@ export default async function SingleProjectPage({
               </Link>
             )}
           </div>
-          <ScrollArea className="h-[600px] w-full rounded-md border">
-            <ProjectGallery projectImages={PROJECT_IMAGES} />
-          </ScrollArea>
+          {PROJECT_IMAGES && PROJECT_IMAGES.length > 0 && (
+            <ScrollArea className="h-[600px] w-full rounded-md border">
+              <ProjectGallery projectImages={PROJECT_IMAGES} />
+            </ScrollArea>
+          )}
         </div>
       </section>
     </div>
